@@ -16,9 +16,11 @@ class PaperBall {
      
     }
     display(){
-      var pos =this.body.position;
-      rectMode(CENTER);
+      
+      
       fill("yellow");
-      rect(pos.x, pos.y, this.width, this.height);
+      
+      imageMode(CENTER);
+        image(this.image, 0, 0, this.width, this.height);
     }
   };
