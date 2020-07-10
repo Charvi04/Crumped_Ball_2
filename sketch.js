@@ -18,9 +18,15 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
-	ground = new Ground(600,380,1200,10);
-	ball = new PaperBall(100,300,10,10)
+	ground = new Ground(600,390,1200,20);
+	//ball = new PaperBall(100,300,10,10);
+	ball1 = new Ball2(100,300)
+	dustbin = new Dustbin (1000,380,110,120);
 
+	line1 = new Line1(1000,370,130,20);
+    line2 = new Line2(935,310,20,140);
+	line3 = new Line3(1060,310,20,140);
+	
 	Engine.run(engine);
   
 }
@@ -28,13 +34,23 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(0);
+  background(250);
   
   ground.display();
-  ball.display();
+ // ball.display();
+ ball1.display();
+  dustbin.display();
+  line1.display();
+  line2.display();
+  line3.display();
+  
   drawSprites();
  
 }
 
-
+function keyPressed(){
+	if (keyCode === UP_ARROW) {
+		Matter.Body.applyForce(ball.body,ball.body.position,{x:5,y:-5});
+	}
+}
 
