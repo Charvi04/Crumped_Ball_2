@@ -53,4 +53,3 @@ function keyPressed(){
 		Matter.Body.applyForce(ball.body,ball.body.position,{x:5,y:-5});
 	}
 }
-
