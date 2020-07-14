@@ -6,13 +6,13 @@ class Dustbin {
       this.body = Bodies.rectangle(x,y,width,height,options);
       this.width = width;
       this.height = height;
-      this.image = loadImage("Dustbin.png")
+      this.image = loadImage("Images/dustbin.png")
       World.add(world, this.body);
     }
     display(){
-      var pos =this.body.position;
+      
       imageMode(CENTER);
       fill("brown");
-      image( this.image,0,0,0,0);
+      image(this.image,this.body.position.x,this.body.position.y,130,150);
     }
   };
