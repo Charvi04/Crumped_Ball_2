@@ -2,6 +2,7 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Constraint = Matter.Constraint;
 
 function setup() {
 createCanvas(1200, 500);
@@ -16,6 +17,8 @@ createCanvas(1200, 500);
 	line1 = new Lines(930,400,20,170);
     line2 = new Lines(1070,400,20,170);
 	line3 = new Lines(1000,470,170,20);
+
+	slingshot = new Launcher(ball.body,{x:150,y:130});
 	Engine.run(engine);
   }
 
@@ -33,6 +36,8 @@ line3.display();
 
 dustbin.display();
 ground.display();
+slingshot.display();
+
   drawSprites();
  
 }
@@ -43,3 +48,14 @@ function keyPressed(){
 	}
 }
 
+function mouseDragged(){
+	Matter.Body.setPosition(ball.body, {x: mouseX , y: mouseY});
+  }
+  
+  
+  function mouseReleased(){
+	slingshot.fly();
+
+  }
+
+  
